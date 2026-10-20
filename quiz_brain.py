@@ -1,5 +1,6 @@
 class QuizBrain:
     def __init__(self, q_list):
+        # look up private variables of classes, and decide whether these should accessible
         self.question_number = 0
         self.question_list = q_list
         self.score = 0
@@ -13,12 +14,12 @@ class QuizBrain:
         print(f"Your current score is: {self.score}/{self.question_number}.")
         print("\n")
     
-    def still_has_questions(self):  
+    def still_has_questions(self):  # you didn't use this in your while loop, when its clearly intended to be!
         return self.question_number < len(self.question_list)
 
     def next_question(self):
         current_question = self.question_list[self.question_number]
-        self.question_number += 1
+        self.question_number += 1 
         user_answer = input(f"Q.{self.question_number}: {current_question.question_text} (True/False): ")
         self.check_answer(user_answer, current_question.answer)
 
